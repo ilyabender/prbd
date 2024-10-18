@@ -1,0 +1,17 @@
+SELECT * FROM `bender`.`organazes`;
+SELECT status, route FROM `bender`.`flight`;
+
+select  `flight`.`idcompany`, 
+`company`.`idtable1`,
+`user`.`email`,
+`company`.`passport`
+FROM 
+`bender`.`organazes`,
+`bender`.`user`,
+`bender`.`company`,
+`bender`.`flight`
+WHERE
+`organazes`.`company_idcompany` = `flight`.`idcompany`
+and `user`.`iduser` = `company`.`idtable1`
+and `organazes`.`bilet_idtable1` = `company`.`idtable1`
+and `flight`.`status` in ('reserv')
